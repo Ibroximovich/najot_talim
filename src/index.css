@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+body{
+  background-color: #f1f0ee;
+}
+
+.ant-input-outlined:hover{
+  border-color: #bc8e5b;
+}
+
+.ant-input-outlined:focus-within{
+  border-color: #bc8e5b;
+  box-shadow: 0 0 0 2px rgba(188,143,91,0.08);
+}
+
+.loading-img{
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes loading{
+  0%{
+    transform: scale(1) rotate(0deg);
+  }
+  100%{
+    transform: scale(2) rotatey(360deg);
+  }
+}
