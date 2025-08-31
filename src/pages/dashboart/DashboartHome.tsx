@@ -1,10 +1,10 @@
 
 
+
+
 const DashboartHome = () => {
   return (
-    <div>
-      <h2>DashboartHome</h2>
-    </div>
+   <h2>dashboard</h2>
   )
 }
 

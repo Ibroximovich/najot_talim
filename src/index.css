@@ -28,3 +28,7 @@ body{
     transform: scale(2) rotatey(360deg);
   }
 }
+
+ .ant-menu-item-selected{
+  background-color: #bc8e5b !important;
+ }

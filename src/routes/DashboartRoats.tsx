@@ -1,14 +1,34 @@
 import { Route, Routes } from "react-router-dom"
 import { PATH } from "../components"
-import { DashboartHome, Groups } from "../pages"
+import { DashboartHome, Groups, Stack, Students, Teachers } from "../pages"
+import { Header, Navbar } from "../modules"
+import { useState } from "react"
 
 
 const DashboartRoats = () => {
+ const [collapse,setCollapse] = useState<boolean>(false)
+
+  const routeList = [
+    {id:1,path:PATH.stacks,element:<Stack/>},
+    {id:1,path:PATH.teachers,element:<Teachers/>},
+    {id:1,path:PATH.students,element:<Students/>},
+    {id:1,path:PATH.groups,element:<Groups/>},
+    {id:1,path:PATH.home,element:<DashboartHome/>},
+
+  ]
   return (
-    <Routes>
-        <Route path={PATH.home} element={<DashboartHome/>}/>
-        <Route path={PATH.groups} element ={<Groups/>}/>
-    </Routes>
+    <div className="flex">
+        <Navbar collapse ={collapse}/>
+      <div className={`${collapse ? "w-full" : "w-[82%]"} `}>
+        <div>
+          <Header setCollapse ={setCollapse} collapse ={collapse} />
+        </div>
+      <Routes>
+          {routeList.map(item => <Route key={item.id} path={item.path} element ={item.element}/>)}
+      </Routes>
+      </div>
+
+    </div>
   )
 }
 
