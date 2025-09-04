@@ -1,10 +1,14 @@
+import { useEffect } from "react"
+import { PATH } from "../../components"
 
 
 
 
 const DashboartHome = () => {
   return (
-   <h2>dashboard</h2>
+  useEffect(()=>{
+    location.pathname =PATH.stacks
+  })
   )
 }
 

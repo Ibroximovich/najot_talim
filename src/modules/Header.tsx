@@ -22,7 +22,6 @@ const Header:FC<{collapse:boolean,setCollapse:Dispatch<SetStateAction<boolean>>}
         <Button onClick={() =>setshowmodal(true)} className="!text-white" type="text" size="large" iconPosition="end" icon ={<LoginOutlined/>}>Chiqish</Button>
        </div>
        <Modal cancelText ={"Bekor qilish"} okText ={"Ha"} open={showModale} okButtonProps={{type:"primary", className:"!bg-[#bc8e5b]"}  } title ={" Tizimdan chiqmoqchimisz ?"} onCancel={() => setshowmodal(false)} onOk={handleOkbtn}>
-       
        </Modal>
         
     </div>

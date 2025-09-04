@@ -14,15 +14,24 @@ const FormLogin: React.FC = () => {
     setIsloading(true)
     console.log('Received values of form: ', values);
     axios.post(`${API}/user/login`,values).then(res =>{
-    
-      toast.success("Muvaffaqqiyatli kirdingiz", {
-        onClose: () =>{
-            setIsloading(false)
-            setcookies("accessToken",res.data.accessToken)
-            location.pathname = "/"
-        },
-        autoClose:3000
-      })
+      
+        toast.success("Muvaffaqqiyatli kirdingiz", {
+          onClose: () =>{
+              setIsloading(false)
+              setcookies("accessToken",res.data.accessToken)
+              location.pathname = "/"
+          },
+          autoClose:3000
+        })
+    }).catch(() =>{
+      toast.error("Ma'lumotlar xato qayta urining", {
+          onClose: () =>{
+              setIsloading(false)
+          },
+          autoClose:3000
+        })
+      
+      
     })
   };
 
@@ -30,15 +39,15 @@ const FormLogin: React.FC = () => {
     <div className='w-full'>
         <div className='flex items-center gap-[10px] justify-center mb-[20px]'>
           <LogoIcon classlist='!w-[60px] !h-[60px]'/>
-          <span className='font-medium '>Admin panel</span>
+          <span className=' !text-[30px]'>Admin panel</span>
         </div>
-    <Form className='w-full'
+    <Form className='w-full'autoComplete='off'
       name="login"
       initialValues={{ remember: true }}
       style={{ maxWidth: 360 }}
       onFinish={onFinish}
     >
-      <Form.Item
+      <Form.Item 
         name="username"
         rules={[{ required: true, message: 'Iltimos username kiriting!' }]}
       >
