@@ -68,32 +68,63 @@ function DeleteFn(id: number) {
           <div className="flex justify-between flex-wrap p-5 gap-[20px]">
             {stacks.map((item) => (
               <Card
-                key={item.id}
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src={`${API}/file/${item.image}`}
-                    className="h-[200px] object-cover"
-                  />
-                }
-              >
-                <Card.Meta title={item.name} />
-                <div className="flex justify-between items-center mt-[20px]">
-                  <Button
-                    size="large"
-                    className="!border-green-600 !text-green-600"
-                    icon={<EditFilled />}
-                  ></Button>
-                  <Button
-                    onClick={() => DeleteFn(item.id)}
-                    size="large"
-                    className="!border-red-600 !text-red-600"
-                    icon={<DeleteFilled />}
-                  ></Button>
-                </div>
-              </Card>
+  key={item.id}
+  hoverable
+  style={{ width: 260 }}
+  className="!rounded-2xl !shadow-md hover:!shadow-2xl transition duration-300 overflow-hidden"
+  cover={
+    <img
+      alt={item.name}
+      src={`${API}/file/${item.image}`}
+      className="h-[200px] object-cover rounded-t-2xl hover:scale-105 transition duration-500"
+    />
+  }
+>
+  <Card.Meta
+    title={
+      <span className="text-lg font-semibold text-gray-800">
+        {item.name}
+      </span>
+    }
+  />
+
+  <div className="flex justify-between items-center mt-4">
+    {/* Edit tugma */}
+    <Button
+      size="large"
+      icon={<EditFilled />}
+      className="
+        !border-green-600 
+        !text-green-600 
+        rounded-full 
+        hover:!bg-green-600 
+        hover:!text-white 
+        transition 
+        duration-300
+        shadow-sm
+      "
+    />
+
+    {/* Delete tugma */}
+    <Button
+      onClick={() => DeleteFn(item.id)}
+      size="large"
+      icon={<DeleteFilled />}
+      className="
+        !border-red-600 
+        !text-red-600 
+        rounded-full 
+        hover:!bg-red-600 
+        hover:!text-white 
+        transition 
+        duration-300
+        shadow-sm
+      "
+    />
+  </div>
+            </Card>
+                
+
             ))}
           </div>
         )}

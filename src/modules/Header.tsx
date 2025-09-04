@@ -19,7 +19,7 @@ const Header:FC<{collapse:boolean,setCollapse:Dispatch<SetStateAction<boolean>>}
         <Badge  overflowCount={9} count ={10}>
             <Button size="middle" icon ={<BellOutlined className="!text-[20px]"/>}></Button>
         </Badge>
-        <Button onClick={() =>setshowmodal(true)} className="!text-white" type="text" size="large" iconPosition="end" icon ={<LoginOutlined/>}>Chiqish</Button>
+        <Button onClick={() =>setshowmodal(true)} className="!text-white duration-300 hover:bg-white" type="text" size="large" iconPosition="end" icon ={<LoginOutlined/>}>Chiqish</Button>
        </div>
        <Modal cancelText ={"Bekor qilish"} okText ={"Ha"} open={showModale} okButtonProps={{type:"primary", className:"!bg-[#bc8e5b]"}  } title ={" Tizimdan chiqmoqchimisz ?"} onCancel={() => setshowmodal(false)} onOk={handleOkbtn}>
        </Modal>
