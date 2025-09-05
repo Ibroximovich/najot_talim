@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { PATH } from "../components"
-import { DashboartHome, Groups, Stack, StackCreate, Students, Teachers } from "../pages"
+import { DashboartHome, Groups, Stack, StackCreate, StackMore, Students, Teachers } from "../pages"
 import { Header, Navbar } from "../modules"
 import { useState } from "react"
 
@@ -15,6 +15,8 @@ const DashboartRoats = () => {
     {id:4,path:PATH.groups,element:<Groups/>},
     {id:5,path:PATH.home,element:<DashboartHome/>},
     {id:6,path:PATH.stackCraete,element:<StackCreate/>},
+    {id:7,path:PATH.stackUpdate,element:<StackCreate/>},
+    {id:7,path:PATH.stackMore,element:<StackMore/>},
 
   ]
   return (

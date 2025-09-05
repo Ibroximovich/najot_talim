@@ -11,7 +11,7 @@ const PagesCaption:FC<{title:string,count:number}> = ({title,count}) => {
             <h2 className='text-[25px] font-bold '>{title}</h2>
             <span>{count} {title.toLowerCase()}</span>
         </div>
-        <Button   onClick={() =>navigate("stackscreate")} className='!bg-[#bc8e5b]'  type='primary' size='large'  icon ={<PlusOutlined/>}>Qo'shish</Button>
+        <Button   onClick={() =>navigate("create")} className='!bg-[#bc8e5b]'  type='primary' size='large'  icon ={<PlusOutlined/>}>Qo'shish</Button>
     </div>
   )
 }

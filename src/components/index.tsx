@@ -4,4 +4,5 @@ import PagesCaption from "./PagesCaption";
 import CreateCaption from "./CreateCaption";
 import  UploadFiles from "./UploadFiles";
 import StackSceleton from "./skeleton/StackSceleton";
-export {PATH,LazyLoading,PagesCaption,CreateCaption,UploadFiles,StackSceleton}
+import CustomTable from "./CustomTable";
+export {PATH,LazyLoading,PagesCaption,CreateCaption,UploadFiles,StackSceleton,CustomTable}

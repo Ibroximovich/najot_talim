@@ -166,3 +166,7 @@ body{
 .image:nth-child(5) { left: 75%; animation-delay: 3s, 4s; }
 .image:nth-child(6) { left: 90%; animation-delay: 5s, 5s; }
 
+
+.custom-table .ant-spin-dot-item {
+  background-color: #bc8e5b !important; 
+}

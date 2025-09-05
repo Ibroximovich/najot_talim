@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { CreateCaption, UploadFiles } from "../../components";
+import { useEffect, useState } from "react";
+import { CreateCaption, UploadFiles } from "../../../components";
 import { Input, message } from "antd";
-import instance from "../../hooks/instance";
+import instance from "../../../hooks/instance";
 import { toast } from "react-toastify";
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
+import { API } from "../../../hooks";
 
 const StackCreate = () => {
   const [image, setImage] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [isLoading, setIsloading] = useState<boolean>(false);
+  const {id} = useParams()
   const navigate = useNavigate();
   function handleSubmitFn(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -22,6 +24,24 @@ const StackCreate = () => {
 
       else if(image && name){
         const data = { name, image };
+        if(id){
+          if(data.image.includes("http")){
+            data.image = data.image.split(`${API}/file/`)[1]
+          }
+          setIsloading(true);
+          instance()
+            .patch(`/stacks/${id}`, data)
+            .then(() => {
+              toast.success("Muvaffaqqiyatli o'zgartirildi", {
+                onClose: () => {
+                  navigate(-1);
+                },
+                autoClose: 2000,
+              });
+            });
+          
+        }
+        else{
           setIsloading(true);
           instance()
             .post("/stacks", data)
@@ -33,8 +53,18 @@ const StackCreate = () => {
                 autoClose: 2000,
               });
             });
+        }
       }
   }
+  useEffect(() =>{
+    if(id){
+      instance().get(`/stacks/${id}`).then(res =>{
+        setName(res.data.name)
+        setImage(`${API}/file/${res.data.image}`)
+      })
+    }
+  },[])
+  
 
   return (
     <form onSubmit={handleSubmitFn} className="p-5 ">
@@ -45,7 +75,7 @@ const StackCreate = () => {
             Rasm yuklash
           </label>
          
-          <UploadFiles setImage={setImage} />
+          <UploadFiles image ={image} setImage={setImage}  />
 
           <br />
         </div>

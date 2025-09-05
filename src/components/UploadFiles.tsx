@@ -1,15 +1,11 @@
 
-
-
-
-
-
-
-import React, { useState, type Dispatch, type SetStateAction } from "react";
+import React, { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { LoadingOutlined, PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Flex, message, Upload } from "antd";
 import type { GetProp, UploadProps } from "antd";
 import { API } from "../hooks";
+
+
 
 type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
 
@@ -28,12 +24,15 @@ const beforeUpload = (file: FileType) => {
 };
 
 
-const UploadFiles: React.FC<{ setImage: Dispatch<SetStateAction<string>> }> = ({
-  setImage,
+const UploadFiles: React.FC<{ image:string ,setImage: Dispatch<SetStateAction<string>>}> = ({
+  setImage,image
 }) => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string>();
 
+  
+  
+  
   const handleChange: UploadProps["onChange"] = (info) => {
     if (info.file.status === "uploading") {
       setLoading(true);
@@ -43,9 +42,11 @@ const UploadFiles: React.FC<{ setImage: Dispatch<SetStateAction<string>> }> = ({
       getBase64(info.file.originFileObj as FileType, (url) => {
         setLoading(false);
         setImageUrl(url);
+
       });
       setImage(info.file.response.filename);
     }
+  
   };
 
   const uploadButton = (
@@ -61,6 +62,11 @@ const UploadFiles: React.FC<{ setImage: Dispatch<SetStateAction<string>> }> = ({
     </div>
   );
 
+  useEffect(() =>{
+    if(image){
+      setImageUrl(image)
+    }
+  },[image])
   return (
     <Flex gap="middle" wrap className="!mt-[40px] justify-center" >
       <Upload 
@@ -72,11 +78,19 @@ const UploadFiles: React.FC<{ setImage: Dispatch<SetStateAction<string>> }> = ({
         beforeUpload={beforeUpload}
         onChange={handleChange}
       >
+
+       
+        
         {imageUrl ? (
+          
           <div className="relative group w-[400px] h-[200px]">
+            
+            
+            
+            
             <img
               className="w-full h-full object-cover rounded-2xl shadow-md"
-              src={imageUrl}
+              src={ imageUrl}
               alt="avatar"
             />
           
