@@ -17,7 +17,7 @@ const Groups = () => {
   const [groups,setGroupType] = useState([])
   const [searchLoading,setSearchLoading] = useState<boolean>(true)
   const [searchName,setSearchName] = useState<string | undefined>("")
-  const [teachers,setTeachrs] = useState<{label:string,value:string}[]>([])
+  // const [teachers,setTeachrs] = useState<{label:string,value:string}[]>([])
 
   const name = Debounce(searchName,500)
     useEffect(() => {
