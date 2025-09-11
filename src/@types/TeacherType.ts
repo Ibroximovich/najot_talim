@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export interface TeacherType {
     id:number,
     name:string,
@@ -40,4 +42,9 @@ export interface TeacherType {
       createdAt: string;
     };
   }[];
+  value?:number
+  label?:string
+  key?:number
+  stackName?:string
+  action:ReactNode
 }

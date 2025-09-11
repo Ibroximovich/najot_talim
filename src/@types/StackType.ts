@@ -5,5 +5,7 @@
     name: string,
     image: string,
     createdAt: string
+    label?:string,
+    value?:number
 
 }

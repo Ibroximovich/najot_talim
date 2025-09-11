@@ -1,8 +1,11 @@
 import { Route, Routes } from "react-router-dom"
 import { PATH } from "../components"
-import { DashboartHome, Groups, Stack, StackCreate, StackMore, Students, Teachers } from "../pages"
+import { DashboartHome, Groups, Stack, StackCreate, StackMore, Students, StudentsCreate, TeacherCreate, Teachers } from "../pages"
 import { Header, Navbar } from "../modules"
 import { useState } from "react"
+import GroupCreate from "../pages/dashboart/Group/GroupCreate"
+import TeachersMore from "../pages/dashboart/Teacher/TeachersMore"
+
 
 
 const DashboartRoats = () => {
@@ -16,7 +19,11 @@ const DashboartRoats = () => {
     {id:5,path:PATH.home,element:<DashboartHome/>},
     {id:6,path:PATH.stackCraete,element:<StackCreate/>},
     {id:7,path:PATH.stackUpdate,element:<StackCreate/>},
-    {id:7,path:PATH.stackMore,element:<StackMore/>},
+    {id:8,path:PATH.stackMore,element:<StackMore/>},
+    {id:9,path:PATH.groupsCreate ,element:<GroupCreate/>},
+    {id:10,path:PATH.teachersCreate ,element:<TeacherCreate/>},
+    {id:11,path:PATH.studentsCreate ,element:<StudentsCreate/>},
+    {id:12,path:PATH.teachersMore ,element:<TeachersMore/>},
 
   ]
   return (

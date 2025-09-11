@@ -8,7 +8,6 @@ function App() {
   const [cookies] = useCookies(["accessToken"])
  
 
-
  return cookies.accessToken ? <DashboartRoats/> : <LoginRoats/>
 }
 
